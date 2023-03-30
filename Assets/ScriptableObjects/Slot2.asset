@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Slot2
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 36559848b210cf04eba67af34d2d3e6f, type: 3}
-  amount: 100
+  amount: 2700
