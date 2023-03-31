@@ -6,39 +6,28 @@ using DG.Tweening;
 
 public class WheelRotation : MonoBehaviour
 {
+    public Action OnSpinEnd;
+
     [SerializeField] private float minRotationAmount = 400;
     [SerializeField] private float maxRotationAmount = 800;
     [SerializeField] private float rotationDuration = 3f;
-    [SerializeField] private GameObject wheel;
 
-    private void Awake()
+    private bool canSpin = true;
+
+    public void ResetWheelRotation()
     {
-        if (!wheel)
-        {
-            wheel = gameObject;
-        }
+        canSpin = true;
     }
 
-    private void StartRotation()
+    public void StartRotation()
     {
-        if (!wheel) return;
-        
+        if (!canSpin) return;
+
+        canSpin = false;
         var randomRotationAmount = UnityEngine.Random.Range(minRotationAmount, maxRotationAmount);
-        wheel.transform.DORotate(new Vector3(0f, 0f, randomRotationAmount), rotationDuration)
+        gameObject.transform.DORotate(new Vector3(0f, 0f, randomRotationAmount), rotationDuration)
             .SetRelative(true)
-            .SetEase(Ease.OutQuad);
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            StartRotation();
-        }
-
-        if (Input.GetKey(KeyCode.V))
-        {
-            Debug.Log(wheel.transform.localEulerAngles.z);
-        }
+            .SetEase(Ease.OutQuad)
+            .OnComplete(()=> { OnSpinEnd?.Invoke(); });
     }
 }
