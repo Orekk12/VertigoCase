@@ -14,6 +14,11 @@ public class WheelRotation : MonoBehaviour
 
     private bool canSpin = true;
 
+    private void OnDisable()
+    {
+        OnSpinEnd = null;
+    }
+
     public void ResetWheelRotation()
     {
         canSpin = true;

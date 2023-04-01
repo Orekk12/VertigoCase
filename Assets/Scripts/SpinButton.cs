@@ -18,4 +18,9 @@ public class SpinButton : MonoBehaviour
             spinButton.onClick.AddListener(()=> wheelRotation.StartRotation());
         }
     }
+
+    private void OnDisable()
+    {
+        spinButton.onClick.RemoveAllListeners();
+    }
 }

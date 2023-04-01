@@ -152,8 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee16a7e0b17f4a43bca8591fc90ff3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wheel: {fileID: 592154188}
-  _wheelRotation: {fileID: 592154192}
+  wheel: {fileID: 592154188}
+  wheelRotation: {fileID: 592154192}
+  winCondition: {fileID: 2131917251}
+  allWheelSlotCards: {fileID: 11400000, guid: fd954056f3063004798fa2295abc8aab, type: 2}
 --- !u!4 &31485009
 Transform:
   m_ObjectHideFlags: 0
@@ -1140,6 +1142,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2131917250}
   - component: {fileID: 2131917251}
+  - component: {fileID: 2131917253}
+  - component: {fileID: 2131917252}
   m_Layer: 0
   m_Name: WinConditionChecker
   m_TagString: Untagged
@@ -1174,6 +1178,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9620547d71e9b418c08204397e40c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2131917252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131917249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 362f1301bc15242c4bc7b447b0eebdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2131917253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131917249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abf6ad3f6689746d9abed8e0c5a06f89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wonCards: []
 --- !u!1001 &740401841615686172
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class GameObjectManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _wheel;
-    public GameObject Wheel => _wheel;
+    [SerializeField] private GameObject wheel;
+    public GameObject Wheel => wheel;
 
-    [SerializeField] private WheelRotation _wheelRotation;
-    public WheelRotation WheelRotation => _wheelRotation;
+    [SerializeField] private WheelRotation wheelRotation;
+    public WheelRotation WheelRotation => wheelRotation;
+
+    [SerializeField] private WinCondition winCondition;
+    public WinCondition WinCondition => winCondition;
+
+    [SerializeField] private AllWheelSlotCards allWheelSlotCards;
+    public AllWheelSlotCards AllWheelSlotCards => allWheelSlotCards;
 
 
     #region SINGLETON PATTERN
