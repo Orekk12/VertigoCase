@@ -19,21 +19,21 @@ public class WinCondition : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            CheckWheelReward();
-        }
-    }
-
     private void CheckWheelReward()
     {
         if (!wheelTransform) return;
 
-        var index = wheelTransform.eulerAngles.z / 22.5;
-        Debug.Log(wheelTransform.eulerAngles.z + " " + index);
+        Debug.Log("rotation: "+ wheelTransform.eulerAngles.z);
+        Debug.Log("Index: " + GetRewardIndex(wheelTransform.eulerAngles.z));
 
         wheelRotation.ResetWheelRotation();
+    }
+
+    private int GetRewardIndex(float rotation)
+    {
+        var tmpRot = rotation - 22.5;
+        var index = Math.Ceiling(tmpRot / 45);
+        if (index == 8) index = 0;
+        return (int)index;
     }
 }
