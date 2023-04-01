@@ -20,7 +20,15 @@ public class SlotContentFiller : MonoBehaviour
     public void FillSlotContent(Sprite slotImage, int slotAmount)
     {
         _slotImage.sprite = slotImage;
-        _slotText.text = "x" + GetAmountAsText(slotAmount);
+
+        if (slotAmount == 0)
+        {
+            _slotText.text = "";
+        }
+        else
+        {
+            _slotText.text = "x" + GetAmountAsText(slotAmount);
+        }
     }
 
     private string GetAmountAsText(int number)
