@@ -18,4 +18,13 @@ public class InterfaceController : MonoBehaviour
         
         uiObject.transform.DOScale(targetScale, appearDuration);
     }
+    
+    public static void SmoothDisappear(GameObject uiObject, float disappearDuration)
+    {
+        uiObject.transform.DOScale(Vector3.zero, disappearDuration)
+            .OnComplete(()=>
+            {
+                uiObject.SetActive(false);
+            });
+    }
 }

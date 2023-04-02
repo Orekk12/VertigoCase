@@ -29,4 +29,9 @@ public class SmoothDarkenPanel : MonoBehaviour
     {
         _panelImage.DOFade(endAlpha, duration).SetEase(Ease.OutQuad);
     }
+
+    public void ReverseDarken()
+    {
+        _panelImage.DOFade(0, duration).SetEase(Ease.OutQuad);
+    }
 }
