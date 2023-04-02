@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b16bf2832f2d434c86f7b6c9434ac78, type: 3}
+  m_Name: CardHolder
+  m_EditorClassIdentifier: 
+  slotCardList:
+  - {fileID: 11400000, guid: fad8e0b6ad33da34c8d3d72b6d6f7f56, type: 2}
+  - {fileID: 11400000, guid: 02ef4d9720875334785a538df8d6dd0a, type: 2}
+  - {fileID: 11400000, guid: 90b02cc17695943b6b0684628b499f02, type: 2}
+  - {fileID: 11400000, guid: 744df6c4407924cf0936ee9db8644bc0, type: 2}
+  - {fileID: 11400000, guid: 912165ec04f37444889ba615b3bd3f13, type: 2}
+  - {fileID: 11400000, guid: 5b8e215fb21df4e4e818ed9624a601f2, type: 2}
+  - {fileID: 11400000, guid: cd53d818c9d0f4c0ebe9068f622ec6d8, type: 2}
+  - {fileID: 11400000, guid: ba5810a7613d24c97af867a9ea78ef25, type: 2}
+  contentCardList:
+  - {fileID: 11400000, guid: c8d93225774284ef5880629194b87c50, type: 2}
+  - {fileID: 11400000, guid: 5e86f34561f1e425a9dbadc20de56c63, type: 2}
+  - {fileID: 11400000, guid: aa91a900d19f940779cb011260e67ac4, type: 2}
+  - {fileID: 11400000, guid: 7c82bbae2fafe4b6f8f15b92ab019d87, type: 2}
+  - {fileID: 11400000, guid: 9333050eff83542b18dd5bc87e24ef4a, type: 2}
+  - {fileID: 11400000, guid: 1170862803d4f45d795f873173fd37c1, type: 2}
+  - {fileID: 11400000, guid: a117a7153e739479a872b6aa3dcab537, type: 2}
+  - {fileID: 11400000, guid: 024279e072b884c9db52ccfcd86596ab, type: 2}
+  failCard: {fileID: 11400000, guid: 1170862803d4f45d795f873173fd37c1, type: 2}

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f945497387777dc4abd92dcb0942c84c, type: 3}
-  m_Name: Slot8
+  m_Name: M67Grenade
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 7be72e754cbbdde4aa9af7538b7012f8, type: 3}
-  amount: 1
+  image: {fileID: 21300000, guid: 6f9af1f668a43aa449cd525ac1c9593e, type: 3}
+  amount: 250
