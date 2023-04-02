@@ -13,8 +13,8 @@ public class GameObjectManager : MonoBehaviour
     [SerializeField] private WinCondition winCondition;
     public WinCondition WinCondition => winCondition;
 
-    [SerializeField] private AllWheelSlotCards allWheelSlotCards;
-    public AllWheelSlotCards AllWheelSlotCards => allWheelSlotCards;
+    [SerializeField] private CardHolder cardHolder;
+    public CardHolder CardHolder => cardHolder;
 
 
     #region SINGLETON PATTERN
