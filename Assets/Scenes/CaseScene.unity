@@ -1235,19 +1235,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2019655360}
     m_Modifications:
-    - target: {fileID: 7138251464996309274, guid: f5595f2a4a8b9a049acad77e9026bab6, type: 3}
-      propertyPath: m_text
-      value: '50
-
-'
-      objectReference: {fileID: 0}
     - target: {fileID: 7138251465043636693, guid: f5595f2a4a8b9a049acad77e9026bab6, type: 3}
       propertyPath: m_Name
       value: FailScreen
-      objectReference: {fileID: 0}
-    - target: {fileID: 7138251465043636693, guid: f5595f2a4a8b9a049acad77e9026bab6, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7138251465043636694, guid: f5595f2a4a8b9a049acad77e9026bab6, type: 3}
       propertyPath: m_Pivot.x
