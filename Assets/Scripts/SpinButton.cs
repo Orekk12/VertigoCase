@@ -5,25 +5,36 @@ using UnityEngine.UI;
 
 public class SpinButton : MonoBehaviour
 {
-    private WheelRotation wheelRotation;
-    private Button spinButton;
+    private WheelRotation _wheelRotation;
+    private Button _spinButton;
 
     private void Awake()
     {
-        spinButton = GetComponent<Button>();
-        wheelRotation = GameObjectManager.Instance.WheelRotation;
+        _spinButton = GetComponent<Button>();
+        _wheelRotation = GameObjectManager.Instance.WheelRotation;
     }
 
     private void Start()
     {
-        if (spinButton && wheelRotation)
+        if (_spinButton && _wheelRotation)
         {
-            spinButton.onClick.AddListener(() => wheelRotation.StartRotation());
+            _spinButton.onClick.AddListener(_wheelRotation.StartRotation);
+            _spinButton.onClick.AddListener(DisableButton);
         }
     }
 
     private void OnDisable()
     {
-        spinButton.onClick.RemoveAllListeners();
+        _spinButton.onClick.RemoveAllListeners();
+    }
+
+    public void EnableButton()
+    {
+        _spinButton.interactable = true;
+    }
+
+    private void DisableButton()
+    {
+        _spinButton.interactable = false;
     }
 }

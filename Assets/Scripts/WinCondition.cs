@@ -8,36 +8,38 @@ public class WinCondition : MonoBehaviour
     public Action<WheelSlotCard> OnWinCard;
     public Action OnFailCard;
 
-    private Transform wheelTransform;
-    private WheelRotation wheelRotation;
-    private CardHolder cardHolder;
+    private Transform _wheelTransform;
+    private WheelRotation _wheelRotation;
+    private CardHolder _cardHolder;
+    private SpinButton _spinButton;
 
     private void Start()
     {
-        wheelRotation = GameObjectManager.Instance.WheelRotation;
-        wheelTransform = GameObjectManager.Instance.Wheel.transform;
-        cardHolder = GameObjectManager.Instance.CardHolder;
+        _wheelRotation = GameObjectManager.Instance.WheelRotation;
+        _wheelTransform = GameObjectManager.Instance.Wheel.transform;
+        _cardHolder = GameObjectManager.Instance.CardHolder;
+        _spinButton = GameObjectManager.Instance.SpinButton;
 
-        if (wheelRotation)
+        if (_wheelRotation)
         {
-            wheelRotation.OnSpinEnd += CheckWheelReward;
+            _wheelRotation.OnSpinEnd += CheckWheelReward;
         }
     }
 
     private void OnDisable()
     {
-        wheelRotation.OnSpinEnd -= CheckWheelReward;
+        _wheelRotation.OnSpinEnd -= CheckWheelReward;
         OnWinCard = null;
         OnFailCard = null;
     }
 
     private void CheckWheelReward()
     {
-        if (!wheelTransform) return;
+        if (!_wheelTransform) return;
 
         //Debug.Log("rotation: "+ wheelTransform.eulerAngles.z);
         //Debug.Log("Index: " + GetRewardIndex(wheelTransform.eulerAngles.z));
-        var resultIndex = GetRewardIndex(wheelTransform.eulerAngles.z);
+        var resultIndex = GetRewardIndex(_wheelTransform.eulerAngles.z);
         var slotCard = GetSlotCard(resultIndex);
 
         if (slotCard.isFail)
@@ -49,7 +51,8 @@ public class WinCondition : MonoBehaviour
             OnWinCard?.Invoke(slotCard);
         }
 
-        wheelRotation.ResetWheelRotation();
+        _wheelRotation.ResetWheelRotation();
+        _spinButton.EnableButton();
     }
 
     private int GetRewardIndex(float rotation)
@@ -62,6 +65,6 @@ public class WinCondition : MonoBehaviour
 
     private WheelSlotCard GetSlotCard(int i)
     {
-        return cardHolder.SlotCardList[i];
+        return _cardHolder.SlotCardList[i];
     }
 }

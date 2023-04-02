@@ -19,13 +19,13 @@ public class SmoothDarkenPanel : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        /*if (Input.GetKeyDown(KeyCode.F))
         {
-            SmoothDarken();
-        }
+            StartSmoothDarken();
+        }*/
     }
 
-    private void SmoothDarken()
+    public void StartSmoothDarken()
     {
         _panelImage.DOFade(endAlpha, duration).SetEase(Ease.OutQuad);
     }

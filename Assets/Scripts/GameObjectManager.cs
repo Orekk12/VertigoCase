@@ -7,6 +7,9 @@ public class GameObjectManager : MonoBehaviour
     [SerializeField] private GameObject wheel;
     public GameObject Wheel => wheel;
 
+    [SerializeField] private SpinButton spinButton;
+    public SpinButton SpinButton => spinButton;
+
     [SerializeField] private WheelRotation wheelRotation;
     public WheelRotation WheelRotation => wheelRotation;
 
@@ -15,6 +18,9 @@ public class GameObjectManager : MonoBehaviour
 
     [SerializeField] private CardHolder cardHolder;
     public CardHolder CardHolder => cardHolder;
+
+    [SerializeField] private SmoothDarkenPanel smoothDarkenPanel;
+    public SmoothDarkenPanel SmoothDarkenPanel => smoothDarkenPanel;
 
 
     #region SINGLETON PATTERN

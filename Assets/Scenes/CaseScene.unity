@@ -191,9 +191,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wheel: {fileID: 592154188}
+  spinButton: {fileID: 2118430035}
   wheelRotation: {fileID: 592154192}
   winCondition: {fileID: 2131917251}
   cardHolder: {fileID: 11400000, guid: e3f12142c478e4c1abc4fecfe4521e1d, type: 2}
+  smoothDarkenPanel: {fileID: 975978771}
 --- !u!4 &31485009
 Transform:
   m_ObjectHideFlags: 0
@@ -435,7 +437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &463137354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1167,8 +1169,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.74509805}
-  m_RaycastTarget: 1
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
   m_OnCullStateChanged:
@@ -2872,6 +2874,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118430035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8280678071309324187, guid: 076da70e282274a8999afce1cdd8ea9d, type: 3}
+  m_PrefabInstance: {fileID: 1746911107137988436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b926eb4a00bc4842bcf3f0f99837509, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2131917249
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class WheelRotation : MonoBehaviour
     [SerializeField] private float maxRotationAmount = 800;
     [SerializeField] private float rotationDuration = 3f;
 
-    private bool canSpin = true;
+    private bool _canSpin = true;
 
     private void OnDisable()
     {
@@ -21,14 +21,14 @@ public class WheelRotation : MonoBehaviour
 
     public void ResetWheelRotation()
     {
-        canSpin = true;
+        _canSpin = true;
     }
 
     public void StartRotation()
     {
-        if (!canSpin) return;
+        if (!_canSpin) return;
 
-        canSpin = false;
+        _canSpin = false;
         var randomRotationAmount = UnityEngine.Random.Range(minRotationAmount, maxRotationAmount);
         gameObject.transform.DORotate(new Vector3(0f, 0f, randomRotationAmount), rotationDuration)
             .SetRelative(true)
