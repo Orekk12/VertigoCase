@@ -25,6 +25,9 @@ public class GameObjectManager : MonoBehaviour
     [SerializeField] private GameObject failPanel;
     public GameObject FailPanel => failPanel;
 
+    [SerializeField] private ReviveCurrency reviveCurrency;
+    public ReviveCurrency ReviveCurrency => reviveCurrency;
+
 
     #region SINGLETON PATTERN
     private static GameObjectManager _instance;
