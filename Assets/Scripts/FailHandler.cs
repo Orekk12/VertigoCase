@@ -6,6 +6,11 @@ public class FailHandler : MonoBehaviour
 {
     private WinCondition _winCondition;
 
+    private void Awake()
+    {
+        _winCondition = GameObjectManager.Instance.WinCondition;
+    }
+
     private void Start()
     {
         _winCondition.OnFailCard += HandleFail;
@@ -13,7 +18,7 @@ public class FailHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        _winCondition.OnFailCard = HandleFail;
+        _winCondition.OnFailCard -= HandleFail;
 
     }
 

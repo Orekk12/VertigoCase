@@ -10,13 +10,13 @@ public class WinCondition : MonoBehaviour
 
     private Transform wheelTransform;
     private WheelRotation wheelRotation;
-    private AllWheelSlotCards allWheelSlotCards;
+    private CardHolder cardHolder;
 
     private void Start()
     {
         wheelRotation = GameObjectManager.Instance.WheelRotation;
         wheelTransform = GameObjectManager.Instance.Wheel.transform;
-        allWheelSlotCards = GameObjectManager.Instance.AllWheelSlotCards;
+        cardHolder = GameObjectManager.Instance.CardHolder;
 
         if (wheelRotation)
         {
@@ -27,6 +27,8 @@ public class WinCondition : MonoBehaviour
     private void OnDisable()
     {
         wheelRotation.OnSpinEnd -= CheckWheelReward;
+        OnWinCard = null;
+        OnFailCard = null;
     }
 
     private void CheckWheelReward()
@@ -38,7 +40,7 @@ public class WinCondition : MonoBehaviour
         var resultIndex = GetRewardIndex(wheelTransform.eulerAngles.z);
         var slotCard = GetSlotCard(resultIndex);
 
-        if (slotCard.IsFail)
+        if (slotCard.isFail)
         {
             OnFailCard?.Invoke();
         }
@@ -46,18 +48,20 @@ public class WinCondition : MonoBehaviour
         {
             OnWinCard?.Invoke(slotCard);
         }
+
+        wheelRotation.ResetWheelRotation();
     }
 
     private int GetRewardIndex(float rotation)
     {
         var tmpRot = rotation - 22.5;
         var index = Math.Ceiling(tmpRot / 45);
-        if (index == 8) index = 1;
-        return (int)index - 1;
+        if (index == 8) index = 0;
+        return (int)index;
     }
 
     private WheelSlotCard GetSlotCard(int i)
     {
-        return allWheelSlotCards.CardList[i];
+        return cardHolder.SlotCardList[i];
     }
 }

@@ -155,7 +155,7 @@ MonoBehaviour:
   wheel: {fileID: 592154188}
   wheelRotation: {fileID: 592154192}
   winCondition: {fileID: 2131917251}
-  allWheelSlotCards: {fileID: 11400000, guid: fd954056f3063004798fa2295abc8aab, type: 2}
+  cardHolder: {fileID: 11400000, guid: e3f12142c478e4c1abc4fecfe4521e1d, type: 2}
 --- !u!4 &31485009
 Transform:
   m_ObjectHideFlags: 0

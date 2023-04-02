@@ -25,6 +25,7 @@ public class RewardHandler : MonoBehaviour
 
     private void HandleCardWin(WheelSlotCard slotCard)
     {
+        slotCard.amount++;
         wonCards.Add(slotCard);
     }
 }

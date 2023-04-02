@@ -12,10 +12,13 @@ public class SpinButton : MonoBehaviour
     {
         spinButton = GetComponent<Button>();
         wheelRotation = GameObjectManager.Instance.WheelRotation;
+    }
 
+    private void Start()
+    {
         if (spinButton && wheelRotation)
         {
-            spinButton.onClick.AddListener(()=> wheelRotation.StartRotation());
+            spinButton.onClick.AddListener(() => wheelRotation.StartRotation());
         }
     }
 
