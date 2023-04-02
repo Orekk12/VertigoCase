@@ -196,6 +196,7 @@ MonoBehaviour:
   winCondition: {fileID: 2131917251}
   cardHolder: {fileID: 11400000, guid: e3f12142c478e4c1abc4fecfe4521e1d, type: 2}
   smoothDarkenPanel: {fileID: 975978771}
+  failPanel: {fileID: 463137353}
 --- !u!4 &31485009
 Transform:
   m_ObjectHideFlags: 0

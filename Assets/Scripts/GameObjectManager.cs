@@ -22,6 +22,9 @@ public class GameObjectManager : MonoBehaviour
     [SerializeField] private SmoothDarkenPanel smoothDarkenPanel;
     public SmoothDarkenPanel SmoothDarkenPanel => smoothDarkenPanel;
 
+    [SerializeField] private GameObject failPanel;
+    public GameObject FailPanel => failPanel;
+
 
     #region SINGLETON PATTERN
     private static GameObjectManager _instance;
