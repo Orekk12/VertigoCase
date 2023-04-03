@@ -28,6 +28,9 @@ public class GameObjectManager : MonoBehaviour
     [SerializeField] private ReviveCurrency reviveCurrency;
     public ReviveCurrency ReviveCurrency => reviveCurrency;
 
+    [SerializeField] private ZoneHandler zoneHandler;
+    public ZoneHandler ZoneHandler => zoneHandler;
+
 
     #region SINGLETON PATTERN
     private static GameObjectManager _instance;
