@@ -31,6 +31,9 @@ public class GameObjectManager : MonoBehaviour
     [SerializeField] private ZoneHandler zoneHandler;
     public ZoneHandler ZoneHandler => zoneHandler;
 
+    [SerializeField] private SlotContentHandler slotContentHandler;
+    public SlotContentHandler SlotContentHandler => slotContentHandler;
+
 
     #region SINGLETON PATTERN
     private static GameObjectManager _instance;

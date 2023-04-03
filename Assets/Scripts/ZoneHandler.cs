@@ -41,10 +41,12 @@ public class ZoneHandler : MonoBehaviour
         if ((zoneCount + 1) % 5 == 0)
         {
             SwitchColors(blueBackground, greenBackground);
+            HandleSafeZone(true);
         }
         else
         {
             SwitchColors(greenBackground, blueBackground);
+            HandleSafeZone(false);
         }
         zoneCount++;
         SpawnNewNumber();
@@ -78,5 +80,20 @@ public class ZoneHandler : MonoBehaviour
         zoneNumbers.DOAnchorPosX(0f, 0.5f);
         greenBackground.rectTransform.localScale = Vector3.one;
         blueBackground.enabled = false;
+    }
+
+    private void HandleSafeZone(bool isSafe)
+    {
+        var slotContentHandler = GameObjectManager.Instance.SlotContentHandler;
+        var failIndex = slotContentHandler.GetFailCardIndex();
+        var cardHolder = GameObjectManager.Instance.CardHolder;
+        var lastIndex = cardHolder.ContentCardList.Count - 1;
+        var cardToPut = cardHolder.ContentCardList[failIndex];
+        if (isSafe)
+        {
+            cardToPut = cardHolder.ContentCardList[lastIndex];
+        }
+
+        slotContentHandler.SetSlotContentByIndex(failIndex, cardToPut);
     }
 }
