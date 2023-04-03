@@ -14,6 +14,7 @@ public class ZoneHandler : MonoBehaviour
 
     private WinCondition _winCondition;
     private int zoneCount = 1;
+    private bool leftSafeZone = false;
 
     private void Start()
     {
@@ -42,12 +43,18 @@ public class ZoneHandler : MonoBehaviour
         {
             SwitchColors(blueBackground, greenBackground);
             HandleSafeZone(true);
+            leftSafeZone = true;
         }
         else
         {
+            if (leftSafeZone)
+            {
+                leftSafeZone = false;
+                HandleSafeZone(false);
+            }
             SwitchColors(greenBackground, blueBackground);
-            HandleSafeZone(false);
         }
+        
         zoneCount++;
         SpawnNewNumber();
     }
@@ -94,6 +101,6 @@ public class ZoneHandler : MonoBehaviour
             cardToPut = cardHolder.ContentCardList[lastIndex];
         }
 
-        slotContentHandler.SetSlotContentByIndex(failIndex, cardToPut);
+        slotContentHandler.SwitchSlotContentByIndex(failIndex, cardToPut);
     }
 }

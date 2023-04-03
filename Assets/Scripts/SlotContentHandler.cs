@@ -36,15 +36,18 @@ public class SlotContentHandler : MonoBehaviour
         }
     }
 
-    public void SetSlotContentByIndex(int i, WheelSlotCard slotCard)
+    public void SwitchSlotContentByIndex(int i, WheelSlotCard slotCard)
     {
         var childSlotTransform = transform.GetChild(i);
         var contentFiller = childSlotTransform.GetComponent<SlotContentFiller>();
         if (slotCard.isFail)
         {
-            //Increase the size of the image to fit the fail card in the slot.
-            //childSlotTransform.GetChild(0).localScale *= 1.7f;
+            childSlotTransform.GetChild(0).localScale *= 1.7f;
             failCardIndex = i;
+        }
+        else
+        {
+            childSlotTransform.GetChild(0).localScale /= 1.7f;
         }
         CopyCardContents(_cardHolder.SlotCardList[i], slotCard);
         contentFiller.FillSlotContent(slotCard.image, slotCard.amount);
