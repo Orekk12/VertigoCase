@@ -5,8 +5,8 @@ using System;
 
 public class RewardMultiplier : MonoBehaviour
 {
+    public Action<float, bool> OnRewardMultiplierChange;
     [SerializeField] private float rewardIncreaseEverySpin = 0.1f;
-    [SerializeField] private float superZoneMultiplier = 2f;
 
     private CardHolder _cardHolder;
 
@@ -31,11 +31,14 @@ public class RewardMultiplier : MonoBehaviour
     {
         var zoneCount = GameObjectManager.Instance.ZoneHandler.GetZoneCount();
         var modifiedMultipler = 1f + (rewardIncreaseEverySpin * zoneCount);
-
+        bool isSuper = false;
         if (zoneCount  % 7 == 0)//super zone
         {
             modifiedMultipler *= 2f;
+            isSuper = true;
         }
+        
+        OnRewardMultiplierChange?.Invoke(modifiedMultipler, isSuper);
 
         for (int i = 0; i < _cardHolder.SlotCardList.Count; i++)
         {
