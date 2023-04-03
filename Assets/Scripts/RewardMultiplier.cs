@@ -32,7 +32,7 @@ public class RewardMultiplier : MonoBehaviour
         var zoneCount = GameObjectManager.Instance.ZoneHandler.GetZoneCount();
         var modifiedMultipler = 1f + (rewardIncreaseEverySpin_value * zoneCount);
         bool isSuper = false;
-        if (zoneCount  % 7 == 0)//super zone
+        if (zoneCount  % 30 == 0)//super zone
         {
             modifiedMultipler *= 2f;
             isSuper = true;
