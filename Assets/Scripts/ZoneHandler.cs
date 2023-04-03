@@ -38,19 +38,31 @@ public class ZoneHandler : MonoBehaviour
 
     private void MoveZoneCounter()
     {
-        var duration = 0.3f;
-        blueBackground.transform.localScale = Vector3.one * 0.75f;
-        blueBackground.enabled = true;
-        zoneNumbers.DOAnchorPosX(zoneNumbers.anchoredPosition.x - 85f, duration);
-
-        greenBackground.rectTransform.DOScale(Vector3.zero, duration);
-        blueBackground.rectTransform.DOScale(Vector3.one * 0.75f, duration / 2)
-            .OnComplete(() =>
-            {
-                blueBackground.rectTransform.DOScale(Vector3.one, duration / 2);
-            });
+        if ((zoneCount + 1) % 5 == 0)
+        {
+            SwitchColors(blueBackground, greenBackground);
+        }
+        else
+        {
+            SwitchColors(greenBackground, blueBackground);
+        }
         zoneCount++;
         SpawnNewNumber();
+    }
+
+    private void SwitchColors(Image closingBg, Image openingBg)
+    {
+        var duration = 0.3f;
+        openingBg.transform.localScale = Vector3.one * 0.75f;
+        openingBg.enabled = true;
+        zoneNumbers.DOAnchorPosX(zoneNumbers.anchoredPosition.x - 85f, duration);
+
+        closingBg.rectTransform.DOScale(Vector3.zero, duration);
+        openingBg.rectTransform.DOScale(Vector3.one * 0.75f, duration / 2)
+            .OnComplete(() =>
+            {
+                openingBg.rectTransform.DOScale(Vector3.one, duration / 2);
+            });
     }
 
     private void SpawnNewNumber()
