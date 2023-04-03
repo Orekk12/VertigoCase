@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
@@ -7,6 +8,9 @@ using TMPro;
 
 public class ZoneHandler : MonoBehaviour
 {
+    public Action<int> OnZoneChange;
+    public Action<int> BeforeZoneChange;
+
     [SerializeField] private Image greenBackground;
     [SerializeField] private Image blueBackground;
     [SerializeField] private RectTransform zoneNumbers;
@@ -39,7 +43,12 @@ public class ZoneHandler : MonoBehaviour
 
     private void MoveZoneCounter()
     {
-        if ((zoneCount + 1) % 5 == 0)
+        zoneCount++;
+        SpawnNewNumber();
+        BeforeZoneChange?.Invoke(zoneCount);
+        OnZoneChange?.Invoke(zoneCount);
+
+        if ((zoneCount) % 5 == 0)
         {
             SwitchColors(blueBackground, greenBackground);
             HandleSafeZone(true);
@@ -54,9 +63,6 @@ public class ZoneHandler : MonoBehaviour
             }
             SwitchColors(greenBackground, blueBackground);
         }
-        
-        zoneCount++;
-        SpawnNewNumber();
     }
 
     private void SwitchColors(Image closingBg, Image openingBg)
@@ -85,8 +91,9 @@ public class ZoneHandler : MonoBehaviour
     public void ResetZoneCounter()
     {
         zoneNumbers.DOAnchorPosX(0f, 0.5f);
-        greenBackground.rectTransform.localScale = Vector3.one;
-        blueBackground.enabled = false;
+        blueBackground.rectTransform.localScale = Vector3.one;
+        greenBackground.enabled = false;
+        zoneCount = 1;
     }
 
     private void HandleSafeZone(bool isSafe)

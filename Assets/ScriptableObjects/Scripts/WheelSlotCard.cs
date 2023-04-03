@@ -11,6 +11,8 @@ public class WheelSlotCard : ScriptableObject
     [SerializeField] public int amount;
     //public int Amount => amount;
 
+    [SerializeField] public int defaultAmount;
+
     [SerializeField] public bool isFail;
     //public bool isFail => isFail;
 }

@@ -281,6 +281,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8911149942074090199, guid: e005760197c864ed58e1665dea7c0a13, type: 3}
   m_PrefabInstance: {fileID: 8911149941461287054}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &685535919 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6829156634330941422, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+  m_PrefabInstance: {fileID: 6829156634721269057}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &848092329 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7138251464548836597, guid: f5595f2a4a8b9a049acad77e9026bab6, type: 3}
@@ -499,6 +504,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &2048253204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048253205}
+  - component: {fileID: 2048253206}
+  m_Layer: 0
+  m_Name: RewardMultiplier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2048253205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048253204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 685535919}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2048253206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048253204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9ea439b543d4632ba62f151fa04a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rewardIncreaseEverySpin: 0.1
+  superZoneMultiplier: 2
 --- !u!1 &2090810674
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class SlotContentHandler : MonoBehaviour
     private void Start()
     {
         SetSlotContents();
+        GameObjectManager.Instance.ZoneHandler.OnZoneChange += RefreshSlotContents;
     }
 
     private void SetSlotContents()
@@ -33,6 +34,16 @@ public class SlotContentHandler : MonoBehaviour
             }
             CopyCardContents(_cardHolder.SlotCardList[i], _cardHolder.ContentCardList[i]);
             contentFiller.FillSlotContent(_cardHolder.ContentCardList[i].image, _cardHolder.ContentCardList[i].amount);
+        }
+    }
+
+    private void RefreshSlotContents(int tmp)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            var childSlotTransform = transform.GetChild(i);
+            var contentFiller = childSlotTransform.GetComponent<SlotContentFiller>();
+            contentFiller.FillSlotContent(_cardHolder.SlotCardList[i].image, _cardHolder.SlotCardList[i].amount);
         }
     }
 
@@ -58,6 +69,7 @@ public class SlotContentHandler : MonoBehaviour
         slotCard.image = contentCard.image;
         slotCard.amount = contentCard.amount;
         slotCard.isFail = contentCard.isFail;
+        slotCard.defaultAmount = contentCard.defaultAmount;
     }
 
     public int GetFailCardIndex()
