@@ -38,8 +38,6 @@ public class WinCondition : MonoBehaviour
     {
         if (!_wheelTransform) return;
 
-        //Debug.Log("rotation: "+ wheelTransform.eulerAngles.z);
-        //Debug.Log("Index: " + GetRewardIndex(wheelTransform.eulerAngles.z));
         var resultIndex = GetRewardIndex(_wheelTransform.eulerAngles.z);
         var slotCard = GetSlotCard(resultIndex);
 

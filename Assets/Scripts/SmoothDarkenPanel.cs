@@ -16,15 +16,7 @@ public class SmoothDarkenPanel : MonoBehaviour
     {
         _panelImage = GetComponent<Image>();
     }
-
-    private void Update()
-    {
-        /*if (Input.GetKeyDown(KeyCode.F))
-        {
-            StartSmoothDarken();
-        }*/
-    }
-
+    
     public void StartSmoothDarken()
     {
         _panelImage.DOFade(endAlpha, duration).SetEase(Ease.OutQuad);

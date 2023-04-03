@@ -8,7 +8,6 @@ public class RewardMultiplier : MonoBehaviour
     [SerializeField] private float rewardIncreaseEverySpin = 0.1f;
     [SerializeField] private float superZoneMultiplier = 2f;
 
-    //private float currentMultiplier = 0f;
     private CardHolder _cardHolder;
 
     private void Awake()
@@ -25,7 +24,6 @@ public class RewardMultiplier : MonoBehaviour
     private void HandleRewardIncrease()
     {
         var zoneCount = GameObjectManager.Instance.ZoneHandler.GetZoneCount();
-        //zoneCount++;
         var modifiedMultipler = 1f + (rewardIncreaseEverySpin * zoneCount);
 
         if (zoneCount  % 7 == 0)//super zone

@@ -7,7 +7,7 @@ using UnityEngine;
 public class SlotContentHandler : MonoBehaviour
 {
     private CardHolder _cardHolder;
-    private int failCardIndex = -1;
+    private int _failCardIndex = -1;
 
     private void Awake()
     {
@@ -17,7 +17,6 @@ public class SlotContentHandler : MonoBehaviour
     private void Start()
     {
         SetSlotContents();
-        //GameObjectManager.Instance.WinCondition.OnSelectRewardCard += RefreshSlotContents;
         GameObjectManager.Instance.WheelRotation.OnSpinEnd += RefreshSlotContents;
         GameObjectManager.Instance.ZoneHandler.OnZoneReset += RefreshSlotContents;
     }
@@ -32,7 +31,7 @@ public class SlotContentHandler : MonoBehaviour
             {
                 //Increase the size of the image to fit the fail card in the slot.
                 childSlotTransform.GetChild(0).localScale *= 1.7f;
-                failCardIndex = i;
+                _failCardIndex = i;
             }
             CopyCardContents(_cardHolder.SlotCardList[i], _cardHolder.ContentCardList[i]);
             contentFiller.FillSlotContent(_cardHolder.ContentCardList[i].image, _cardHolder.ContentCardList[i].amount);
@@ -56,7 +55,7 @@ public class SlotContentHandler : MonoBehaviour
         if (slotCard.isFail)
         {
             childSlotTransform.GetChild(0).localScale *= 1.7f;
-            failCardIndex = i;
+            _failCardIndex = i;
         }
         else
         {
@@ -76,7 +75,7 @@ public class SlotContentHandler : MonoBehaviour
 
     public int GetFailCardIndex()
     {
-        return failCardIndex;
+        return _failCardIndex;
     }
 
     public List<WheelSlotCard> Shuffle(List<WheelSlotCard> list)

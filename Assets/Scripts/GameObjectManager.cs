@@ -49,7 +49,6 @@ public class GameObjectManager : MonoBehaviour
         else
         {
             _instance = this;
-            //DontDestroyOnLoad(this.gameObject);
         }
     }
     #endregion

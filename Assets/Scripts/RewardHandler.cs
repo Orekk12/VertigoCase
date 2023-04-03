@@ -56,8 +56,6 @@ public class RewardHandler : MonoBehaviour
             _wonCardsDict.TryAdd(slotCard.image.name, _activeSlotCount);
             _activeSlotCount++;
         }
-        //wonCards.Add(slotCard);
-        //MoveZoneCounter();
     }
 
     private void MoveZoneCounter()
