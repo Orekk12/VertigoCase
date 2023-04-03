@@ -21,6 +21,12 @@ public class SlotContentHandler : MonoBehaviour
         GameObjectManager.Instance.ZoneHandler.OnZoneReset += RefreshSlotContents;
     }
 
+    private void OnDisable()
+    {
+        GameObjectManager.Instance.WheelRotation.OnSpinEnd -= RefreshSlotContents;
+        GameObjectManager.Instance.ZoneHandler.OnZoneReset -= RefreshSlotContents;
+    }
+
     private void SetSlotContents()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -59,6 +65,7 @@ public class SlotContentHandler : MonoBehaviour
         }
         else
         {
+            //Adjust image size after fail card
             childSlotTransform.GetChild(0).localScale /= 1.7f;
         }
         CopyCardContents(_cardHolder.SlotCardList[i], slotCard);

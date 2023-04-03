@@ -21,6 +21,12 @@ public class RewardMultiplier : MonoBehaviour
         GameObjectManager.Instance.ZoneHandler.OnZoneReset += ResetRewards;
     }
 
+    private void OnDisable()
+    {
+        GameObjectManager.Instance.WinCondition.OnSelectRewardCard -= HandleRewardIncrease;
+        GameObjectManager.Instance.ZoneHandler.OnZoneReset -= ResetRewards;
+    }
+
     private void HandleRewardIncrease()
     {
         var zoneCount = GameObjectManager.Instance.ZoneHandler.GetZoneCount();

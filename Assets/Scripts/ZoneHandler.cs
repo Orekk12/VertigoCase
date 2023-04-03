@@ -27,12 +27,16 @@ public class ZoneHandler : MonoBehaviour
             _winCondition.OnWinCard += MoveZoneOnWin;
             _winCondition.OnFailCard += MoveZoneCounter;
         }
+
+        GameObjectManager.Instance.RewardHandler.OnEmptyRewards += ResetZoneCounter;
     }
 
     private void OnDisable()
     {
         _winCondition.OnWinCard -= MoveZoneOnWin;
         _winCondition.OnFailCard -= MoveZoneCounter;
+        GameObjectManager.Instance.RewardHandler.OnEmptyRewards -= ResetZoneCounter;
+
     }
 
     private void MoveZoneOnWin(WheelSlotCard tmp)

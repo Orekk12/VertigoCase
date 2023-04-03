@@ -9,6 +9,7 @@ using DG.Tweening;
 
 public class RewardHandler : MonoBehaviour
 {
+    public Action OnEmptyRewards;
     [SerializeField] private Transform parentItemSlot;
     [SerializeField] private Image greenBackground;
     [SerializeField] private Image blueBackground;
@@ -33,6 +34,8 @@ public class RewardHandler : MonoBehaviour
     private void OnDisable()
     {
         _winCondition.OnWinCard -= HandleCardWin;
+        exitButton.onClick.RemoveAllListeners();
+        giveUpButton.onClick.RemoveAllListeners();
     }
 
     private void HandleCardWin(WheelSlotCard slotCard)
@@ -98,6 +101,6 @@ public class RewardHandler : MonoBehaviour
             childRewardSlot.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
         }
 
-        GameObjectManager.Instance.ZoneHandler.ResetZoneCounter();
+        OnEmptyRewards?.Invoke();
     }
 }
