@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9ea439b543d4632ba62f151fa04a08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rewardIncreaseEverySpin: 0.1
+  rewardIncreaseEverySpin_value: 0.1
 --- !u!1 &1275420766116469452
 GameObject:
   m_ObjectHideFlags: 0
@@ -162,7 +162,7 @@ GameObject:
   - component: {fileID: 6829156633288069731}
   - component: {fileID: 6829156633288069730}
   m_Layer: 0
-  m_Name: Currency
+  m_Name: ReviveCurrency
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -195,9 +195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b3c3578a31bc134fb8c740bf44389d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  reviveCost: 50
-  initialCurrencyAmount: 100
-  currentCurrencyAmount: 100
+  reviveCost_value: 50
+  initialCurrencyAmount_value: 300
+  currentCurrencyAmount_value: 100
   currencyText: {fileID: 0}
   button: {fileID: 0}
 --- !u!1 &6829156633629838464
@@ -369,4 +369,4 @@ MonoBehaviour:
   zoneHandler: {fileID: 6899740000184780792}
   slotContentHandler: {fileID: 0}
   rewardHandler: {fileID: 6829156633629838468}
-  rewardMultiplier: {fileID: 0}
+  rewardMultiplier: {fileID: 2048253206}
