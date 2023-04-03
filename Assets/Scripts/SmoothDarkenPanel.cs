@@ -20,10 +20,12 @@ public class SmoothDarkenPanel : MonoBehaviour
     public void StartSmoothDarken()
     {
         _panelImage.DOFade(endAlpha, duration).SetEase(Ease.OutQuad);
+        _panelImage.raycastTarget = true;
     }
 
     public void ReverseDarken()
     {
         _panelImage.DOFade(0, duration).SetEase(Ease.OutQuad);
+        _panelImage.raycastTarget = false;
     }
 }

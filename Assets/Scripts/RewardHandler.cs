@@ -25,7 +25,18 @@ public class RewardHandler : MonoBehaviour
     {
         _winCondition = GameObjectManager.Instance.WinCondition;
         if (_winCondition) _winCondition.OnWinCard += HandleCardWin;
-        if (exitButton) exitButton.onClick.AddListener(EmptyRewards);
+        if (exitButton)
+        {
+            exitButton.onClick.AddListener(EmptyRewards);
+            GameObjectManager.Instance.WheelRotation.OnSpinStart += () =>
+            {
+                exitButton.interactable = false;
+            };
+            GameObjectManager.Instance.WheelRotation.OnSpinEnd += () =>
+            {
+                exitButton.interactable = true;
+            };
+        }
         if (giveUpButton) giveUpButton.onClick.AddListener(EmptyRewards);
 
         _activeSlotCount = 0;
@@ -59,24 +70,6 @@ public class RewardHandler : MonoBehaviour
             _wonCardsDict.TryAdd(slotCard.image.name, _activeSlotCount);
             _activeSlotCount++;
         }
-    }
-
-    private void MoveZoneCounter()
-    {
-        var duration = 0.3f;
-        blueBackground.transform.localScale = Vector3.one * 0.75f;
-        blueBackground.enabled = true;
-        zoneNumbers.DOAnchorPosX(zoneNumbers.anchoredPosition.x - 85f, duration)
-            .OnComplete(() =>
-            {
-                
-            });
-        greenBackground.rectTransform.DOScale(Vector3.zero, duration);
-        blueBackground.rectTransform.DOScale(Vector3.one * 0.75f, duration / 2)
-            .OnComplete(() =>
-            {
-                blueBackground.rectTransform.DOScale(Vector3.one, duration / 2);
-            });
     }
 
     private string GetAmountAsText(int number)

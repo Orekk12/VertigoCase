@@ -49,7 +49,7 @@ public class ZoneHandler : MonoBehaviour
         _zoneCount++;
         SpawnNewNumber();
         
-        if ((_zoneCount) % 5 == 0)
+        if (_zoneCount % 5 == 0 || _zoneCount % 30 == 0)
         {
             SwitchColors(blueBackground, greenBackground);
             HandleSafeZone(true);

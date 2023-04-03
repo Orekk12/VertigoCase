@@ -6,6 +6,7 @@ using DG.Tweening;
 
 public class WheelRotation : MonoBehaviour
 {
+    public Action OnSpinStart;
     public Action OnSpinEnd;
 
     [SerializeField] private float minRotationAmount = 400;
@@ -29,6 +30,7 @@ public class WheelRotation : MonoBehaviour
         if (!_canSpin) return;
 
         _canSpin = false;
+        OnSpinStart?.Invoke();
         var randomRotationAmount = UnityEngine.Random.Range(minRotationAmount, maxRotationAmount);
         gameObject.transform.DORotate(new Vector3(0f, 0f, randomRotationAmount), rotationDuration)
             .SetRelative(true)
