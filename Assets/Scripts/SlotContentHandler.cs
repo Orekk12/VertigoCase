@@ -17,13 +17,13 @@ public class SlotContentHandler : MonoBehaviour
     private void Start()
     {
         SetSlotContents();
-        GameObjectManager.Instance.WheelRotation.OnSpinEnd += RefreshSlotContents;
+        GameObjectManager.Instance.WinCondition.OnSelectRewardCard += RefreshSlotContents;
         GameObjectManager.Instance.ZoneHandler.OnZoneReset += RefreshSlotContents;
     }
 
     private void OnDisable()
     {
-        GameObjectManager.Instance.WheelRotation.OnSpinEnd -= RefreshSlotContents;
+        GameObjectManager.Instance.WinCondition.OnSelectRewardCard -= RefreshSlotContents;
         GameObjectManager.Instance.ZoneHandler.OnZoneReset -= RefreshSlotContents;
     }
 

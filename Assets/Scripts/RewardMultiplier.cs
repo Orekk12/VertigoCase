@@ -42,12 +42,13 @@ public class RewardMultiplier : MonoBehaviour
 
         for (int i = 0; i < _cardHolder.SlotCardList.Count; i++)
         {
-            _cardHolder.SlotCardList[i].amount = Mathf.FloorToInt(_cardHolder.SlotCardList[i].defaultAmount * modifiedMultipler);
+            _cardHolder.SlotCardList[i].amount = Mathf.CeilToInt(_cardHolder.SlotCardList[i].defaultAmount * modifiedMultipler);
         }
     }
 
     private void ResetRewards()
     {
+        OnRewardMultiplierChange?.Invoke(1f, false);
         for (int i = 0; i < _cardHolder.SlotCardList.Count; i++)
         {
             _cardHolder.SlotCardList[i].amount = _cardHolder.SlotCardList[i].defaultAmount;
