@@ -5,12 +5,15 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 using Unity.Collections;
+using DG.Tweening;
 
 public class RewardHandler : MonoBehaviour
 {
     [SerializeField] private Transform parentItemSlot;
     [SerializeField] private List<WheelSlotCard> wonCards;
-    [SerializeField] private GameObject rewardSlotPosObject;
+    [SerializeField] private Image greenBackground;
+    [SerializeField] private Image blueBackground;
+    [SerializeField] private RectTransform zoneNumbers;
 
     private Dictionary<string, int> wonCardsDict = new Dictionary<string, int>();
     private WinCondition _winCondition;
@@ -53,6 +56,25 @@ public class RewardHandler : MonoBehaviour
             activeSlotCount++;
         }
         wonCards.Add(slotCard);
+        MoveZoneCounter();
+    }
+
+    private void MoveZoneCounter()
+    {
+        var duration = 0.3f;
+        blueBackground.transform.localScale = Vector3.one * 0.75f;
+        blueBackground.enabled = true;
+        zoneNumbers.DOAnchorPosX(zoneNumbers.anchoredPosition.x - 85f, duration)
+            .OnComplete(() =>
+            {
+                
+            });
+        greenBackground.rectTransform.DOScale(Vector3.zero, duration);
+        blueBackground.rectTransform.DOScale(Vector3.one * 0.75f, duration / 2)
+            .OnComplete(() =>
+            {
+                blueBackground.rectTransform.DOScale(Vector3.one, duration / 2);
+            });
     }
 
     private string GetAmountAsText(int number)
