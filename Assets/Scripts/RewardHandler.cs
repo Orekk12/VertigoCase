@@ -10,23 +10,24 @@ using DG.Tweening;
 public class RewardHandler : MonoBehaviour
 {
     [SerializeField] private Transform parentItemSlot;
-    [SerializeField] private List<WheelSlotCard> wonCards;
     [SerializeField] private Image greenBackground;
     [SerializeField] private Image blueBackground;
     [SerializeField] private RectTransform zoneNumbers;
+    [SerializeField] private Button giveUpButton;
+    [SerializeField] private Button exitButton;
 
-    private Dictionary<string, int> wonCardsDict = new Dictionary<string, int>();
+    private Dictionary<string, int> _wonCardsDict = new Dictionary<string, int>();
     private WinCondition _winCondition;
-    private int activeSlotCount = 0;
+    private int _activeSlotCount = 0;
 
     private void Start()
     {
         _winCondition = GameObjectManager.Instance.WinCondition;
-        if (_winCondition)
-        {
-            _winCondition.OnWinCard += HandleCardWin;
-        }
-        activeSlotCount = 0;
+        if (_winCondition) _winCondition.OnWinCard += HandleCardWin;
+        if (exitButton) exitButton.onClick.AddListener(EmptyRewards);
+        if (giveUpButton) giveUpButton.onClick.AddListener(EmptyRewards);
+
+        _activeSlotCount = 0;
     }
 
     private void OnDisable()
@@ -36,27 +37,27 @@ public class RewardHandler : MonoBehaviour
 
     private void HandleCardWin(WheelSlotCard slotCard)
     {
-        if (wonCardsDict.ContainsKey(slotCard.image.name))
+        if (_wonCardsDict.ContainsKey(slotCard.image.name))
         {
-            wonCardsDict.TryGetValue(slotCard.image.name, out var index);
+            _wonCardsDict.TryGetValue(slotCard.image.name, out var index);
             var rewardChildItem = parentItemSlot.GetChild(index);
             var rewardChildText = rewardChildItem.GetComponentInChildren<TextMeshProUGUI>();
             rewardChildText.text = GetAmountAsText(slotCard.amount + GetAmountAsInt(rewardChildText.text));
         }
         else
         {
-            var rewardChildItem = parentItemSlot.GetChild(activeSlotCount);
+            var rewardChildItem = parentItemSlot.GetChild(_activeSlotCount);
             var rewardChildImage = rewardChildItem.GetComponentInChildren<Image>();
             rewardChildImage.sprite = slotCard.image;
             rewardChildImage.enabled = true;
             var rewardChildText = rewardChildItem.GetComponentInChildren<TextMeshProUGUI>();
             rewardChildText.text = GetAmountAsText(slotCard.amount);
             rewardChildText.enabled = true;
-            wonCardsDict.TryAdd(slotCard.image.name, activeSlotCount);
-            activeSlotCount++;
+            _wonCardsDict.TryAdd(slotCard.image.name, _activeSlotCount);
+            _activeSlotCount++;
         }
-        wonCards.Add(slotCard);
-        MoveZoneCounter();
+        //wonCards.Add(slotCard);
+        //MoveZoneCounter();
     }
 
     private void MoveZoneCounter()
@@ -85,5 +86,20 @@ public class RewardHandler : MonoBehaviour
     private int GetAmountAsInt(string s)
     {
         return Convert.ToInt32(s[1..]);
+    }
+
+    private void EmptyRewards()
+    {
+        _activeSlotCount = 0;
+        _wonCardsDict.Clear();
+
+        for (int i = 0; i < parentItemSlot.transform.childCount; i++)
+        {
+            var childRewardSlot = parentItemSlot.transform.GetChild(i);
+            childRewardSlot.GetComponentInChildren<Image>().enabled = false;
+            childRewardSlot.GetComponentInChildren<TextMeshProUGUI>().enabled = false;
+        }
+
+        GameObjectManager.Instance.ZoneHandler.ResetZoneCounter();
     }
 }

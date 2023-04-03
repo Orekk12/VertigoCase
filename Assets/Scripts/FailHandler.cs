@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FailHandler : MonoBehaviour
 {
+    [SerializeField] private Button giveupButton;
     private WinCondition _winCondition;
     private SmoothDarkenPanel _smoothDarkenPanel;
     private GameObject _failPanel;
@@ -19,19 +21,13 @@ public class FailHandler : MonoBehaviour
     private void Start()
     {
         _winCondition.OnFailCard += HandleFail;
+        if (giveupButton) giveupButton.onClick.AddListener(HandleGiveUpButton);
     }
 
     private void OnDisable()
     {
         _winCondition.OnFailCard -= HandleFail;
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            HandleFail();
-        }
+        giveupButton.onClick.RemoveAllListeners();
     }
 
     private void HandleFail()
@@ -39,5 +35,11 @@ public class FailHandler : MonoBehaviour
         Debug.Log("Fail!");
         _smoothDarkenPanel.StartSmoothDarken();
         InterfaceController.SmoothAppear(_failPanel, Vector3.one, 0.5f);
+    }
+
+    private void HandleGiveUpButton()
+    {
+        InterfaceController.SmoothDisappear(GameObjectManager.Instance.FailPanel, 0.5f);
+        GameObjectManager.Instance.SmoothDarkenPanel.ReverseDarken();
     }
 }
