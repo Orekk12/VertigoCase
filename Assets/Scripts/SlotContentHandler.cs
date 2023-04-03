@@ -17,7 +17,9 @@ public class SlotContentHandler : MonoBehaviour
     private void Start()
     {
         SetSlotContents();
-        GameObjectManager.Instance.ZoneHandler.OnZoneChange += RefreshSlotContents;
+        //GameObjectManager.Instance.WinCondition.OnSelectRewardCard += RefreshSlotContents;
+        GameObjectManager.Instance.WheelRotation.OnSpinEnd += RefreshSlotContents;
+        GameObjectManager.Instance.ZoneHandler.OnZoneReset += RefreshSlotContents;
     }
 
     private void SetSlotContents()
@@ -37,7 +39,7 @@ public class SlotContentHandler : MonoBehaviour
         }
     }
 
-    private void RefreshSlotContents(int tmp)
+    private void RefreshSlotContents()
     {
         for (int i = 0; i < transform.childCount; i++)
         {

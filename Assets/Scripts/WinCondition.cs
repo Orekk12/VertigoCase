@@ -7,6 +7,7 @@ public class WinCondition : MonoBehaviour
 {
     public Action<WheelSlotCard> OnWinCard;
     public Action OnFailCard;
+    public Action OnSelectRewardCard;
 
     private Transform _wheelTransform;
     private WheelRotation _wheelRotation;
@@ -50,6 +51,7 @@ public class WinCondition : MonoBehaviour
         {
             OnWinCard?.Invoke(slotCard);
         }
+        OnSelectRewardCard?.Invoke();
 
         _wheelRotation.ResetWheelRotation();
         _spinButton.EnableButton();

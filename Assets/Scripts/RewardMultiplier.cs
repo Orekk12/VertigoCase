@@ -18,14 +18,17 @@ public class RewardMultiplier : MonoBehaviour
 
     private void Start()
     {
-        GameObjectManager.Instance.ZoneHandler.BeforeZoneChange += HandleRewardIncrease;
+        GameObjectManager.Instance.WinCondition.OnSelectRewardCard += HandleRewardIncrease;
+        GameObjectManager.Instance.ZoneHandler.OnZoneReset += ResetRewards;
     }
 
-    private void HandleRewardIncrease(int zoneCount)
+    private void HandleRewardIncrease()
     {
-        var modifiedMultipler = 1f + (rewardIncreaseEverySpin * zoneCount-1);
+        var zoneCount = GameObjectManager.Instance.ZoneHandler.GetZoneCount();
+        //zoneCount++;
+        var modifiedMultipler = 1f + (rewardIncreaseEverySpin * zoneCount);
 
-        if (zoneCount  % 3 == 0)//super zone
+        if (zoneCount  % 7 == 0)//super zone
         {
             modifiedMultipler *= 2f;
         }
@@ -33,6 +36,14 @@ public class RewardMultiplier : MonoBehaviour
         for (int i = 0; i < _cardHolder.SlotCardList.Count; i++)
         {
             _cardHolder.SlotCardList[i].amount = Mathf.FloorToInt(_cardHolder.SlotCardList[i].defaultAmount * modifiedMultipler);
+        }
+    }
+
+    private void ResetRewards()
+    {
+        for (int i = 0; i < _cardHolder.SlotCardList.Count; i++)
+        {
+            _cardHolder.SlotCardList[i].amount = _cardHolder.SlotCardList[i].defaultAmount;
         }
     }
 }

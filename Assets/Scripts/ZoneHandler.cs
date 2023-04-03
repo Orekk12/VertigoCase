@@ -8,8 +8,7 @@ using TMPro;
 
 public class ZoneHandler : MonoBehaviour
 {
-    public Action<int> OnZoneChange;
-    public Action<int> BeforeZoneChange;
+    public Action OnZoneReset;
 
     [SerializeField] private Image greenBackground;
     [SerializeField] private Image blueBackground;
@@ -17,8 +16,8 @@ public class ZoneHandler : MonoBehaviour
     [SerializeField] private GameObject newNumberPrefab;
 
     private WinCondition _winCondition;
-    private int zoneCount = 1;
-    private bool leftSafeZone = false;
+    private int _zoneCount = 1;
+    private bool _leftSafeZone = false;
 
     private void Start()
     {
@@ -43,22 +42,20 @@ public class ZoneHandler : MonoBehaviour
 
     private void MoveZoneCounter()
     {
-        zoneCount++;
+        _zoneCount++;
         SpawnNewNumber();
-        BeforeZoneChange?.Invoke(zoneCount);
-        OnZoneChange?.Invoke(zoneCount);
-
-        if ((zoneCount) % 5 == 0)
+        
+        if ((_zoneCount) % 5 == 0)
         {
             SwitchColors(blueBackground, greenBackground);
             HandleSafeZone(true);
-            leftSafeZone = true;
+            _leftSafeZone = true;
         }
         else
         {
-            if (leftSafeZone)
+            if (_leftSafeZone)
             {
-                leftSafeZone = false;
+                _leftSafeZone = false;
                 HandleSafeZone(false);
             }
             SwitchColors(greenBackground, blueBackground);
@@ -84,8 +81,8 @@ public class ZoneHandler : MonoBehaviour
     {
         var newNum = Instantiate(newNumberPrefab, zoneNumbers);
         var numTransform = newNum.GetComponent<RectTransform>();
-        numTransform.anchoredPosition = new Vector2((4 + zoneCount) * 85, numTransform.anchoredPosition.y);
-        newNum.GetComponent<TextMeshProUGUI>().text = (5 + zoneCount).ToString();
+        numTransform.anchoredPosition = new Vector2((4 + _zoneCount) * 85, numTransform.anchoredPosition.y);
+        newNum.GetComponent<TextMeshProUGUI>().text = (5 + _zoneCount).ToString();
     }
 
     public void ResetZoneCounter()
@@ -93,7 +90,8 @@ public class ZoneHandler : MonoBehaviour
         zoneNumbers.DOAnchorPosX(0f, 0.5f);
         blueBackground.rectTransform.localScale = Vector3.one;
         greenBackground.enabled = false;
-        zoneCount = 1;
+        _zoneCount = 1;
+        OnZoneReset?.Invoke();
     }
 
     private void HandleSafeZone(bool isSafe)
@@ -109,5 +107,10 @@ public class ZoneHandler : MonoBehaviour
         }
 
         slotContentHandler.SwitchSlotContentByIndex(failIndex, cardToPut);
+    }
+
+    public int GetZoneCount()
+    {
+        return _zoneCount;
     }
 }
