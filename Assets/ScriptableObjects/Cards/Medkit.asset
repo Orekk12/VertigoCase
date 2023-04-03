@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 08e1b05e124a7c540a23d7c5f65f9555, type: 3}
   amount: 10
+  defaultAmount: 10
+  isFail: 0
