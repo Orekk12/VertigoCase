@@ -6,7 +6,7 @@ using System;
 public class RewardMultiplier : MonoBehaviour
 {
     public Action<float, bool> OnRewardMultiplierChange;
-    [SerializeField] private float rewardIncreaseEverySpin = 0.1f;
+    [SerializeField] private float rewardIncreaseEverySpin_value = 0.1f;
 
     private CardHolder _cardHolder;
 
@@ -30,7 +30,7 @@ public class RewardMultiplier : MonoBehaviour
     private void HandleRewardIncrease()
     {
         var zoneCount = GameObjectManager.Instance.ZoneHandler.GetZoneCount();
-        var modifiedMultipler = 1f + (rewardIncreaseEverySpin * zoneCount);
+        var modifiedMultipler = 1f + (rewardIncreaseEverySpin_value * zoneCount);
         bool isSuper = false;
         if (zoneCount  % 7 == 0)//super zone
         {

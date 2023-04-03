@@ -7,9 +7,9 @@ using TMPro;
 
 public class ReviveCurrency : MonoBehaviour
 {
-    [SerializeField] private int reviveCost = 100;
-    [SerializeField] private int initialCurrencyAmount = 100;
-    [SerializeField] private int currentCurrencyAmount = 100;
+    [SerializeField] private int reviveCost_value = 50;
+    [SerializeField] private int initialCurrencyAmount_value = 100;
+    [SerializeField] private int currentCurrencyAmount_value = 100;
     [SerializeField] private TextMeshProUGUI currencyText;
     [SerializeField] private Button button;
 
@@ -34,17 +34,17 @@ public class ReviveCurrency : MonoBehaviour
 
     public void AddCurrency(int i)
     {
-        currentCurrencyAmount += i;
+        currentCurrencyAmount_value += i;
         SetCurrencyUI();
     }
     
     public bool UseCurrency(int i)
     {
-        var tmpCurrency = currentCurrencyAmount;
+        var tmpCurrency = currentCurrencyAmount_value;
         tmpCurrency -= i;
         if (tmpCurrency >= 0)
         {
-            currentCurrencyAmount = tmpCurrency;
+            currentCurrencyAmount_value = tmpCurrency;
             SetCurrencyUI();
             return true;
         }
@@ -56,13 +56,13 @@ public class ReviveCurrency : MonoBehaviour
 
     public void ResetCurrency()
     {
-        currentCurrencyAmount = initialCurrencyAmount;
+        currentCurrencyAmount_value = initialCurrencyAmount_value;
         SetCurrencyUI();
     }
 
     private void SetCurrencyUI()
     {
-        currencyText.text = GetAmountAsText(currentCurrencyAmount);
+        currencyText.text = GetAmountAsText(currentCurrencyAmount_value);
     }
 
     private void SetCostUI()
@@ -70,7 +70,7 @@ public class ReviveCurrency : MonoBehaviour
         var costText = button.transform.GetChild(2);
         if (costText)
         {
-            costText.GetComponent<TextMeshProUGUI>().text = reviveCost.ToString();
+            costText.GetComponent<TextMeshProUGUI>().text = reviveCost_value.ToString();
         }
         else
         {
@@ -89,7 +89,7 @@ public class ReviveCurrency : MonoBehaviour
     
     private void ClickButton()
     {
-        if (UseCurrency(reviveCost))
+        if (UseCurrency(reviveCost_value))
         {
             InterfaceController.SmoothDisappear(GameObjectManager.Instance.FailPanel, 0.5f);
             GameObjectManager.Instance.SmoothDarkenPanel.ReverseDarken();

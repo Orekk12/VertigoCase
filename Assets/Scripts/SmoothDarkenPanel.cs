@@ -6,8 +6,8 @@ using DG.Tweening;
 
 public class SmoothDarkenPanel : MonoBehaviour
 {
-    [SerializeField] private float endAlpha;
-    [SerializeField] private float duration;
+    [SerializeField] private float endAlpha_value = 0.8f;
+    [SerializeField] private float duration_value = 0.5f;
 
     private Image _panelImage;
 
@@ -19,13 +19,13 @@ public class SmoothDarkenPanel : MonoBehaviour
     
     public void StartSmoothDarken()
     {
-        _panelImage.DOFade(endAlpha, duration).SetEase(Ease.OutQuad);
+        _panelImage.DOFade(endAlpha_value, duration_value).SetEase(Ease.OutQuad);
         _panelImage.raycastTarget = true;
     }
 
     public void ReverseDarken()
     {
-        _panelImage.DOFade(0, duration).SetEase(Ease.OutQuad);
+        _panelImage.DOFade(0, duration_value).SetEase(Ease.OutQuad);
         _panelImage.raycastTarget = false;
     }
 }

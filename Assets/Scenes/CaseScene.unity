@@ -517,6 +517,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &2048253206 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2048253206, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+  m_PrefabInstance: {fileID: 6829156634721269057}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a9ea439b543d4632ba62f151fa04a08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2090810674
 GameObject:
   m_ObjectHideFlags: 0
@@ -817,6 +828,30 @@ PrefabInstance:
       propertyPath: titleText
       value: 
       objectReference: {fileID: 1796664518}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: goldenColor_value.b
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: goldenColor_value.g
+      value: 0.3803922
+      objectReference: {fileID: 0}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: goldenColor_value.r
+      value: 0.63529414
+      objectReference: {fileID: 0}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: silverColor_value.b
+      value: 0.80392164
+      objectReference: {fileID: 0}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: silverColor_value.g
+      value: 0.8078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: silverColor_value.r
+      value: 0.79215693
+      objectReference: {fileID: 0}
     - target: {fileID: 6829156633288069730, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
       propertyPath: button
       value: 
@@ -917,6 +952,10 @@ PrefabInstance:
       propertyPath: wheelRotation
       value: 
       objectReference: {fileID: 592154192}
+    - target: {fileID: 6829156634752735505, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: rewardMultiplier
+      value: 
+      objectReference: {fileID: 2048253206}
     - target: {fileID: 6829156634752735505, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
       propertyPath: smoothDarkenPanel
       value: 
