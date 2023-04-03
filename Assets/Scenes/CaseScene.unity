@@ -303,11 +303,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8911149942074090199, guid: e005760197c864ed58e1665dea7c0a13, type: 3}
   m_PrefabInstance: {fileID: 8911149941461287054}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &685535919 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6829156634330941422, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
-  m_PrefabInstance: {fileID: 6829156634721269057}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &848092329 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7138251464548836597, guid: f5595f2a4a8b9a049acad77e9026bab6, type: 3}
@@ -319,64 +314,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &879344034
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 879344035}
-  - component: {fileID: 879344036}
-  m_Layer: 0
-  m_Name: GoldenUIHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &879344035
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879344034}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 685535919}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &879344036
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879344034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f469c9ff162014444b479f5d48d28ecc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rewardMultiplier: {fileID: 2048253206}
-  frame: {fileID: 231938380}
-  goldenFrame: {fileID: 21300000, guid: df77694951dcbb24898e0cdb33fe12bb, type: 3}
-  silverFrame: {fileID: 21300000, guid: c159fc64c0932b94494307f27dfde3e9, type: 3}
-  arrow: {fileID: 1898122700}
-  goldenArrow: {fileID: 21300000, guid: f4f59bf25950af84ba6e6266a8ba1c23, type: 3}
-  silverArrow: {fileID: 21300000, guid: 1569119a42b0fa64db5da1bf61ff3a5f, type: 3}
-  wheel: {fileID: 592154196}
-  goldenWheel: {fileID: 21300000, guid: f6a9fc35f28df9a4ba308bdf38096218, type: 3}
-  silverWheel: {fileID: 21300000, guid: 3e994adc56905494d9769056a5b7da23, type: 3}
-  altText: {fileID: 1508754652}
-  titleText: {fileID: 1796664518}
-  goldenColor: {r: 1, g: 0.78039217, b: 0, a: 1}
-  silverColor: {r: 0.7921569, g: 0.79607844, b: 0.7921569, a: 1}
 --- !u!224 &959096523 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4198125646078810916, guid: 830d345b89236f54a9f69212a2a6145e, type: 3}
@@ -472,17 +409,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2002512632 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6899740000184780792, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
-  m_PrefabInstance: {fileID: 6829156634721269057}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad2f5feafd214cb5b2ba3b985081370, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2019655356
@@ -591,17 +517,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &2048253206 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2048253206, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
-  m_PrefabInstance: {fileID: 6829156634721269057}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a9ea439b543d4632ba62f151fa04a08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2090810674
 GameObject:
   m_ObjectHideFlags: 0
@@ -882,6 +797,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: arrow
+      value: 
+      objectReference: {fileID: 1898122700}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: frame
+      value: 
+      objectReference: {fileID: 231938380}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: wheel
+      value: 
+      objectReference: {fileID: 592154196}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: altText
+      value: 
+      objectReference: {fileID: 1508754652}
+    - target: {fileID: 879344036, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
+      propertyPath: titleText
+      value: 
+      objectReference: {fileID: 1796664518}
     - target: {fileID: 6829156633288069730, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
       propertyPath: button
       value: 
@@ -978,10 +913,6 @@ PrefabInstance:
       propertyPath: spinButton
       value: 
       objectReference: {fileID: 2118430035}
-    - target: {fileID: 6829156634752735505, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
-      propertyPath: zoneHandler
-      value: 
-      objectReference: {fileID: 2002512632}
     - target: {fileID: 6829156634752735505, guid: fb5f4de57c576486ba3511eda557b2fd, type: 3}
       propertyPath: wheelRotation
       value: 

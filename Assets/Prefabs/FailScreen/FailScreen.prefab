@@ -870,9 +870,21 @@ PrefabInstance:
       propertyPath: m_margin.z
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 7081780146245191369, guid: 7395bcabbd4a4e249881eb8a42bc7945, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b9955e27ff241064ab421550b0baef57, type: 3}
+    - target: {fileID: 7081780146245191374, guid: 7395bcabbd4a4e249881eb8a42bc7945, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7081780146245191374, guid: 7395bcabbd4a4e249881eb8a42bc7945, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7081780146245191374, guid: 7395bcabbd4a4e249881eb8a42bc7945, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -31.3
+      value: -28.36
       objectReference: {fileID: 0}
     - target: {fileID: 7081780146621547170, guid: 7395bcabbd4a4e249881eb8a42bc7945, type: 3}
       propertyPath: m_Pivot.x
